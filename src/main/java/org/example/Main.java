@@ -1,13 +1,19 @@
 package org.example;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Main {
 
     public static void main(String[] args) {
-        // DIY DI
-        PrinterService con = new ConsolePrinter();
-        PrinterService log = new SLF4JPrinter();
+        ApplicationContext ctx =
+                new ClassPathXmlApplicationContext("config.xml");
 
-        App app = new App(log);
+        App app = ctx.getBean("app", App.class);
         app.doeMaarWat();
+
+        App app2 = ctx.getBean("app2", App.class);
+        app2.doeMaarWat();
+
     }
 }

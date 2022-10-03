@@ -4,6 +4,7 @@ public class App {
 
     private PrinterService ps;// = new PrinterService();
 
+    // injection point
     public App(PrinterService ps) {
         this.ps = ps;
     }
