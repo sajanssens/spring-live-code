@@ -23,8 +23,8 @@
     </Appenders>
 
     <Loggers>
-        <!--<Logger name="com.example" level="ALL" additivity="true">
-            <AppenderRef ref="rollingFile"/>
+        <!--<Logger name="org.springframework" level="ALL" additivity="true">
+            <AppenderRef ref="console"/>
         </Logger>-->
 
 

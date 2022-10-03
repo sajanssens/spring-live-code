@@ -7,9 +7,7 @@
     <bean id="con" class="org.example.ConsolePrinter"/>
     <bean id="log" class="org.example.SLF4JPrinter"/>
 
-    <bean id="app" class="org.example.App">
-        <constructor-arg ref="con"/>
-    </bean>
+    <bean id="app" class="org.example.App" autowire="byName"/>
 
     <bean id="app2" class="org.example.App">
         <constructor-arg ref="log"/>
