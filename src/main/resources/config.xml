@@ -5,7 +5,7 @@
 
     <!-- bean definitions here -->
     <bean id="con" class="org.example.ConsolePrinter"/>
-    <bean id="log" class="org.example.SLF4JPrinter"/>
+    <bean id="log" class="org.example.LoggerPrinter"/>
 
     <bean id="app" class="org.example.App" autowire="byName"/>
 

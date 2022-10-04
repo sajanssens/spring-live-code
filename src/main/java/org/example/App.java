@@ -1,22 +1,27 @@
 package org.example;
 
+import org.example.util.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class App {
 
+    @Autowired @Logger
     private PrinterService ps;// = new PrinterService();
+
+    @Autowired @Qualifier("hcSing")
     private HitCounter hc;
 
-    public App() {
-    }
+    public App() { }
 
     // injection point
+    public App(PrinterService ps) {
+        this.ps = ps;
+    }
+
     public App(PrinterService ps, HitCounter hc) {
         this.ps = ps;
         this.hc = hc;
-    }
-
-    public App(PrinterService ps) {
-        this.ps = ps;
-        this.hc = new HitCounter();
     }
 
     public void doeMaarWat() {
@@ -29,7 +34,7 @@ public class App {
         ps.print(hc.toString());
     }
 
-    public void setCon(PrinterService ps) {
+    public void setPs(PrinterService ps) {
         this.ps = ps;
     }
 

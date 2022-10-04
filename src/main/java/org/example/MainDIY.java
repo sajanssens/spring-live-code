@@ -7,7 +7,7 @@ public class MainDIY {
 
         // Stap 1: instances van injectables maken
         PrinterService con = new ConsolePrinter();
-        PrinterService log = new SLF4JPrinter();
+        PrinterService log = new LoggerPrinter();
 
         // Stap 2: injectables injecteren op de juiste plekken
         App app = new App(log);
