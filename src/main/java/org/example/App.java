@@ -2,14 +2,15 @@ package org.example;
 
 import org.example.util.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class App {
 
     @Autowired @Logger
     private PrinterService ps;// = new PrinterService();
 
-    @Autowired @Qualifier("hcSing")
+    @Autowired /*@Qualifier("hcSing")*/
     private HitCounter hc;
 
     public App() { }
