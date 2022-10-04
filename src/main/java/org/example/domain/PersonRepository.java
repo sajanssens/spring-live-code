@@ -7,17 +7,13 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Repository
-public class PersonDao {
+public class PersonRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-    public Person find(long id) {
-        return em.find(Person.class, id);
-    }
+    public Person find(long id) { return em.find(Person.class, id); }
 
     @Transactional
-    public void save(Person p) {
-        em.persist(p);
-    }
+    public void save(Person p) { em.merge(p); }
 }

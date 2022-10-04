@@ -4,6 +4,11 @@ logging:
 
 spring:
   jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    #        dialect: "org.hibernate.dialect.MySQLDialect"
     database: mysql
     hibernate:
       ddl-auto: create
