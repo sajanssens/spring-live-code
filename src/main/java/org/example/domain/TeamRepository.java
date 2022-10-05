@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -20,3 +19,4 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
 
     Team findTeamByName(String name);
 }
+

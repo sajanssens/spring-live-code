@@ -1,5 +1,6 @@
 package org.example.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class Team extends AbstractEntity {
 
     @OneToMany(mappedBy = "team")
     @Builder.Default
+    @JsonBackReference
     private Set<Person> members = new HashSet<>();
 }

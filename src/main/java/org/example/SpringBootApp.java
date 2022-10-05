@@ -40,12 +40,12 @@ public class SpringBootApp implements CommandLineRunner {
         personRepository.save(p);
 
         Team firstDevopEager = teamService.findTeamWithMembersByNameLike("devop");
-        Team devOps3 = teamService.findTeamByName("DevOps3");
+        Team devOps3Lazy = teamService.findTeamByName("DevOps3");
+
         System.out.println(firstDevopEager);
     }
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(SpringBootApp.class);
-        // System.in.read();
     }
 }
