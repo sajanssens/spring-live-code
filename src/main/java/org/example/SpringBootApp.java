@@ -16,9 +16,6 @@ import java.io.IOException;
 public class SpringBootApp implements CommandLineRunner {
 
     @Autowired
-    private App app;
-
-    @Autowired
     private PersonRepository personRepository;
 
     @Autowired
@@ -29,19 +26,22 @@ public class SpringBootApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        teamRepository.save(Team.builder().name("DevOps3").build());
+        Team devOps31 = Team.builder().name("DevOps3").build();
+        teamRepository.save(devOps31);
         teamRepository.save(Team.builder().name("DevOps1").build());
         teamRepository.save(Team.builder().name("DevOps2").build());
         teamRepository.save(Team.builder().name("DevOps").build());
         teamRepository.save(Team.builder().name("DevOps").build());
 
-        Team devOps3 = teamService.findTeamByName("DevOps3");
+        System.out.println(devOps31);
 
-        Person p = Person.builder().name("Bram").age(42).team(devOps3).build();
+
+        Person p = Person.builder().name("Bram").age(42).team(devOps31).build();
         personRepository.save(p);
 
-        Team devop = teamService.findTeamWithMembersByNameLike("devop");
-        System.out.println(devop);
+        Team firstDevopEager = teamService.findTeamWithMembersByNameLike("devop");
+        Team devOps3 = teamService.findTeamByName("DevOps3");
+        System.out.println(firstDevopEager);
     }
 
     public static void main(String[] args) throws IOException {

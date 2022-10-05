@@ -1,4 +1,4 @@
-package org.example;
+package org.example._old;
 
 public class MainDIY {
 

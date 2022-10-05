@@ -4,12 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="con" class="org.example.ConsolePrinter"/>
-    <bean id="log" class="org.example.LoggerPrinter"/>
+    <bean id="con" class="org.example._old.ConsolePrinter"/>
+    <bean id="log" class="org.example._old.LoggerPrinter"/>
 
-    <bean id="app" class="org.example.App" autowire="byName"/>
+    <bean id="app" class="org.example._old.App" autowire="byName"/>
 
-    <bean id="app2" class="org.example.App">
+    <bean id="app2" class="org.example._old.App">
         <constructor-arg ref="log"/>
     </bean>
 

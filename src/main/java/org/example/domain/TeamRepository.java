@@ -14,7 +14,7 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
 
     List<Team> findTeamByNameContainingIgnoreCaseOrderByNameAsc(String name);
 
-    @Transactional
+    // @Transactional
     @Query("SELECT t FROM Team t JOIN FETCH t.members where t.name like %:name%")
     Stream<Team> findTeamWithMembersByNameLike(@Param("name") String name);
 
