@@ -27,10 +27,10 @@ public class PersonsResource {
 
     @GetMapping("{id}")
     public Person one(@PathVariable long id) throws InterruptedException {
-        Thread.sleep(5000);
         Person person = personRepo.find(id);
         if (person == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "De persoon was niet gevonden, maar je moeder wel.");
 
+        Thread.sleep(2000);
         return person;
     }
 }

@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 
+// Run in dev mode with live reload with `mvn spring-boot:run`
+// Recompile after making a change
 @SpringBootApplication
 public class SpringBootApp implements CommandLineRunner {
 

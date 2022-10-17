@@ -7,8 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -17,7 +15,6 @@ import javax.persistence.ManyToOne;
 @Data @Builder @AllArgsConstructor @NoArgsConstructor
 public class Person extends AbstractEntity {
 
-    @JsonbProperty("naam") // not working yet
     private String name;
 
     private int age;
@@ -25,6 +22,5 @@ public class Person extends AbstractEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @JsonbTransient // not working yet
     private Team team;
 }

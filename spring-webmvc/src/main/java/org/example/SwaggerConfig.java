@@ -11,6 +11,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
+    // http://localhost:8080/swagger-ui/
+
+    // Doesn't automatically work with jsonb, only with jackson
+    // Switch to jackson in application.yml -> spring.mvc.converters.preferred-json-mapper
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

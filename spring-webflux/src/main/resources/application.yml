@@ -2,6 +2,9 @@ logging:
   level:
     org.example: DEBUG
 
+server:
+  port: 8081
+
 spring:
   jpa:
     properties:
@@ -16,6 +19,7 @@ spring:
     username: "root"
     password: "root"
 
-  mvc:
-    converters:
-      preferred-json-mapper: jackson
+  devtools:
+    restart:
+      poll-interval: 2s
+      quiet-period: 1s
