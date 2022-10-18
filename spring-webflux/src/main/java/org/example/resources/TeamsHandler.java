@@ -20,16 +20,23 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 public class TeamsHandler {
 
     @Autowired
-    private TeamService teamService;
+    private TeamService ts;
 
-    public List<Team> all() { return teamService.findAll(); }
+    // public List<Team> all() { return teamService.findAll(); }
 
     public Mono<ServerResponse> one(ServerRequest rq) {
         // not ideal: JPARepo is not non-blocking, i.e. it is blocking.
         // Better use r2dbc or mongo, which is reactive by nature (TODO)
-        Optional<Team> optionalTeam = teamService.findById(parseLong(rq.pathVariable("id")));
+        Optional<Team> t = ts.findById(parseLong(rq.pathVariable("id")));
         return ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(fromValue(optionalTeam));
+                .body(fromValue(t));
+    }
+
+    public Mono<ServerResponse> all(ServerRequest rq) {
+        List<Team> all = ts.findAll();
+        return ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(fromValue(all));
     }
 }

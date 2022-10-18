@@ -1,0 +1,28 @@
+logging:
+  level:
+    org.example: DEBUG
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: "jdbc:mysql://localhost:3306/hrm"
+    username: "root"
+    password: "root"
+
+  mvc:
+    converters:
+      preferred-json-mapper: jsonb
+    path-match:
+      matching-strategy: ant_path_matcher # see https://stackoverflow.com/questions/72235752/cannot-invoke-org-springframework-web-servlet-mvc-condition-patternsrequestcond
+
+  devtools:
+    restart:
+      poll-interval: 2s
+      quiet-period: 1s
